@@ -14,14 +14,19 @@ class Triangle
       raise TriangleError
     elsif length1 < 0 || length2 < 0 || length3 < 0
       raise TriangleError
-    elsif length1 == length2 && length2 == length3
-      :equilateral
-    elsif length1 != length2 && length1 == length3 || length1 == length2 && length3 != length1 || length2 == length3
-      :isosceles
-    elsif length1 != length2 && length1 != length3 && length2 != length3
-      :scalene
-    end
+    # elsif length1 == length2 && length2 == length3
+    #   :equilateral
+    # elsif length1 != length2 && length1 == length3 || length1 == length2 && length3 != length1 || length2 == length3
+    #   :isosceles
+    # elsif length1 != length2 && length1 != length3 && length2 != length3
+    #   :scalene
+    # end
+  elsif a == b || b == c || a == c
+    :isosceles
+  else
+    :scalene
   end
+end
 
     class TriangleError < StandardError
       "This is not a triangle!"
